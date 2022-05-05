@@ -1,0 +1,11 @@
+@import './core/core';
+
+html {
+
+  > body {
+    background-color: $grandBg;
+    color: $color700;
+    font-family: Calibri;
+    font-size: 100%;
+  }
+}

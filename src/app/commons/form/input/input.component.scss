@@ -1,0 +1,144 @@
+@import "core";
+
+:host {
+  display: block;
+  width: 100%;
+
+  &:not(:last-child){
+    margin-bottom: 15px;
+  }
+}
+
+.form-control {
+
+  .input-wrapper {
+    width: 100%;
+    position: relative;
+
+    > strong {
+      position: absolute;
+      left: 0.3rem;
+      top: -0.8rem;
+      color: $danger;
+    }
+
+    /**
+  * Add a transition to the label and input.
+  * I'm not even sure that touch-action: manipulation works on
+  * inputs, but hey, it's new and cool and could remove the
+  * pesky delay.
+  */
+    > label,
+    > input {
+      transition: all 0.2s;
+      touch-action: manipulation;
+    }
+
+    >.check-mark {
+      position: absolute;
+      right: 0.6rem;
+      top: 0.6rem;
+      opacity: 0;
+      z-index: 99;
+      transition: all .3s;
+      color: $success;
+    }
+
+    label {
+      //text-transform: uppercase;
+      letter-spacing: 0.05em;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 2;
+
+      > span {
+        background-color: $bg;
+        padding: 0 5px;
+        color: $color600;
+      }
+    }
+
+    > input {
+      width: calc(100% - 1.2rem);
+      min-height: 28px;
+      border: solid 2px $border-color;
+      border-radius: 7px;
+      padding: 3px 0.6rem;
+      -webkit-appearance: none;
+      cursor: text;
+      min-height: 30px;
+      color: $color700;
+      background-color: $bg;
+
+      &:focus {
+        outline: none;
+        border-color: $hotColor;
+
+        &+label {
+          > span {
+            color: $hotColor;
+          }
+        }
+      }
+
+      &.ng-touched.ng-dirty.ng-valid:not(:focus) ~ .check-mark {
+        opacity: 1;
+      }
+    }
+
+    /**
+    * Translate down and scale the label up to cover the placeholder,
+    * when following an input (with placeholder-shown support).
+    * Also make sure the label is only on one row, at max 2/3rds of the
+    * field—to make sure it scales properly and doesn't wrap.
+    */
+    input:placeholder-shown + label {
+      cursor: text;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transform-origin: left bottom;
+      transform: translate(0.6rem, 0.6rem);
+    }
+    /**
+    * By default, the placeholder should be transparent. Also, it should
+    * inherit the transition.
+    */
+    ::-webkit-input-placeholder {
+      opacity: 0;
+      transition: inherit;
+    }
+    /**
+    * Show the placeholder when the input is focused.
+    */
+    input:focus::-webkit-input-placeholder {
+      opacity: 1;
+    }
+    /**
+    * When the element is focused, remove the label transform.
+    * Also, do this when the placeholder is _not_ shown, i.e. when
+    * there's something in the input at all.
+    */
+    input:not(:placeholder-shown) + label,
+    input:focus + label {
+      transform: translate(1rem, -0.7rem) scale(0.7);
+      cursor: pointer;
+      transform-origin: left bottom;
+    }
+
+    > .toggle-password-visibility-button {
+      background-color: transparent;
+      border: none;
+      position: absolute;
+      right: 1.8rem;
+      top: 0.7rem;
+      color: $gray900;
+    }
+  }
+}
+
+
+
+
+

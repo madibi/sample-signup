@@ -1,0 +1,111 @@
+@import "core";
+
+ngb-datepicker {
+  background-color: $bg;
+  padding: 10px 20px 0 !important;
+  z-index: 999;
+
+  > .ngb-dp-header {
+    > ngb-datepicker-navigation {
+      > .ngb-dp-arrow {
+        > button {
+          > .ngb-dp-navigation-chevron {
+            width: 0.3em;
+            height: 0.3em;
+            border-color: $gray700;
+          }
+        }
+      }
+
+      > ngb-datepicker-navigation-select {
+        > .form-select {
+          background-color: $bg;
+          border: none;
+          font-size: .75rem;
+
+          &:focus {
+            background-color: $gray500;
+          }
+
+          > option {
+            background-color: $bg;
+          }
+        }
+      }
+    }
+  }
+
+  > .ngb-dp-content {
+    > .ngb-dp-month {
+      > ngb-datepicker-month {
+        > .ngb-dp-week {
+
+          &.ngb-dp-weekdays {
+            border-bottom: none;
+
+            > .ngb-dp-weekday {
+              font-style: normal;
+              font-size: .8rem;
+              font-weight: bold;
+            }
+          }
+
+          > .ngb-dp-day {
+            font-size: .8rem;
+
+            > .btn-light {
+              border-radius: 50%;
+              transition: all .3s linear;
+              background-color: transparent;
+              &:hover {
+                background-color: $gray300;
+                color: $hotColor;
+              }
+
+              &.bg-primary {
+                color: white;
+                background-color: $hotColor;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0 15px;
+
+    > .btn {
+      width: 80px;
+      height: 23px;
+      display: block;
+      margin: 0 3px;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.75rem;
+      cursor: pointer;
+
+      &.btn-primary {
+        color: white;
+        background-color: $hotColor;
+      }
+
+      &.btn-secondary {
+        color: $color700;
+        background-color: $gray300;
+      }
+    }
+  }
+}
+
+app-date-picker {
+  ngb-datepicker + label {
+    transform: translate(1rem, -0.7rem) scale(0.7);
+    cursor: pointer;
+    transform-origin: left bottom;
+  }
+}

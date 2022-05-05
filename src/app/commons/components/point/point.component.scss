@@ -1,0 +1,11 @@
+@import 'core';
+
+p {
+  display: flex;
+
+  > app-icon {
+    display: block;
+    margin-right: 10px;
+    color: $hotColor;
+  }
+}

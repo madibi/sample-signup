@@ -1,0 +1,41 @@
+<div class="date-wrapper">
+  <strong *ngIf="formField?.hasError( 'required' )">*</strong>
+<!--  [minDate]="{year: 2000, month:1, day: 1}"-->
+<!--  [maxDate]="{year: 2010, month:12, day: 30}"-->
+  <input class="form-control"
+         [ngClass]="{
+              'ng-touched': formField?.touched,
+              'ng-dirty ': formField?.dirty,
+              'ng-invalid':
+                 formField?.invalid
+                 && formField?.dirty,
+              'ng-valid':
+              !formField?.invalid
+                 && formField?.dirty
+            }"
+         [id]="fieldName"
+         [name]="fieldName"
+         [(ngModel)]="model"
+         [placeholder]="placeholder"
+         ngbDatepicker
+         [footerTemplate]="footerTemplate"
+         (click)="d.toggle()"
+         #d="ngbDatepicker">
+  <label class="form-label"
+         [for]="fieldName">
+      <span class="is-required">
+        {{ label }}
+      </span>
+  </label>
+  <app-icon class="check-mark" name="check"></app-icon>
+  <button class="toggle-date-visibility-button" (click)="d.toggle()" type="button">
+    <app-icon [name]="'calendar'"></app-icon>
+  </button>
+</div>
+
+<ng-template #footerTemplate>
+  <div class="footer">
+    <button class="btn btn-secondary btn-sm m-2 float-end" (click)="d.close()">Cancel</button>
+    <button class="btn btn-primary btn-sm m-2 float-start" (click)="model = today; d.close()">Set Date</button>
+  </div>
+</ng-template>

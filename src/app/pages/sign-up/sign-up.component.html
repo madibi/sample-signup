@@ -1,0 +1,89 @@
+<section class="comp sign-up">
+
+  <div class="header">
+    <div class="first">SOL</div>
+    <div class="last">Already using? <app-link>Sign in</app-link></div>
+  </div>
+
+  <div class="main">
+    <div class="first">
+      <h2>Create an account</h2>
+      <div class="points">
+        <app-point icon="shield">Secure payment through reliable partners</app-point>
+        <app-point icon="zap">Fast transfers</app-point>
+        <app-point icon="percent">Fair commissions</app-point>
+        <app-point icon="activity">Best available rates</app-point>
+        <app-point icon="thumbs-up">Convenience</app-point>
+      </div>
+    </div>
+    <div class="last">
+      <div class="form-wrapper">
+        <form class="form" autocomplete="off"
+              *ngIf="signUpFrom"
+              [formGroup]="signUpFrom"
+              (ngSubmit)="submitSignUpForm()">
+
+          <app-input
+            [parentForm]="signUpFrom"
+            fieldName="fullName"
+            label="Full Name"
+            placeholder="name + family"
+            formControlName="fullName">
+          </app-input>
+
+          <app-input
+            [parentForm]="signUpFrom"
+            fieldName="email"
+            label="Email"
+            placeholder="email@domain.com"
+            formControlName="email">
+          </app-input>
+
+          <app-input
+            [parentForm]="signUpFrom"
+            fieldName="phoneNumber"
+            label="Phone Number"
+            inputType="tel"
+            placeholder="+(xx) xxx-xxxxx"
+            formControlName="phoneNumber">
+          </app-input>
+
+          <div class="password-wrapper">
+            <app-input
+              [parentForm]="signUpFrom"
+              fieldName="password"
+              label="Password"
+              inputType="password"
+              placeholder="select a strong password"
+              formControlName="password">
+            </app-input>
+            <app-password-strength-checker
+              [passwordToCheck]="signUpFrom.value.password"
+            ></app-password-strength-checker>
+          </div>
+
+          <app-date-picker
+            [parentForm]="signUpFrom"
+            fieldName="birthDate"
+            label="BirthDate"
+            placeholder="yyyy/mm/dd"
+            formControlName="birthDate"
+          ></app-date-picker>
+
+          <div class="buttons">
+            <app-button [type]="'submit'"
+                    [disabled]="signUpFrom?.invalid">
+              Submit
+            </app-button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <app-theme-toggle></app-theme-toggle>
+  </div>
+
+</section>
+

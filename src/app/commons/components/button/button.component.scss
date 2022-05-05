@@ -1,0 +1,21 @@
+@import "core";
+
+button {
+  width: 100%;
+  min-height: 34px;
+  line-height: 34px;
+  color: white;
+  background-color: $hotColor;
+  border-radius: 7px;
+  transition: all .3s linear;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    background-color: #7f59f8;
+  }
+
+  &:disabled {
+    background-color: $gray900;
+  }
+}
