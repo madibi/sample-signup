@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {InputPasswordModule} from '@commons/form/input-password/input-password.module';
 import { SignUpComponent } from '@pages/sign-up/sign-up.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FieldErrorsModule} from "@commons/form/field-errors/field-errors.module";
@@ -26,7 +25,6 @@ import {ButtonModule} from "@commons/components/button/button.module";
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    InputPasswordModule,
     FieldErrorsModule,
     PointModule,
     LinkModule,
